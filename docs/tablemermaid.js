@@ -42,4 +42,3 @@ function setupTableToMermaid(tbodySelector) {
 
 	mermaid.initialize({startOnLoad:false});
 }
-setupTableToMermaid('.confluenceTable>tbody>tr');
