@@ -16,7 +16,7 @@ class Task {
 }
 
 function convertHtml(td) {
-	return td.innerText.split(' ').join('<br>')
+	return td.innerText.trim().split(' ').join('<br>')
 }
 
 function tableToMermaidScript(tbodySelector) {
