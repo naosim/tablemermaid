@@ -16,7 +16,7 @@ class Task {
 }
 
 function convertHtml(td) {
-	return td.split(' ').join('<br>')
+	return td.innerText.split(' ').join('<br>')
 }
 
 function tableToMermaidScript(tbodySelector) {
@@ -24,7 +24,7 @@ function tableToMermaidScript(tbodySelector) {
 	rows.filter = Array.prototype.filter;
 	var tasks = rows.filter(row => row.querySelector('td').innerText.trim().length > 0)
 		.map(row => row.querySelectorAll('td'))
-		.map(cells => new Task(cells[0].innerText, convertHtml(cells[1].innerText), cells[2].innerText.split(',')))
+		.map(cells => new Task(cells[0].innerText, convertHtml(cells[1]), cells[2].innerText.split(',')))
 	 
 	var script = 'graph TD\n';
 	script += tasks.map(v => v.getDefine()).join('\n') + '\n'
